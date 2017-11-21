@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "103281681634-vrhd7hggpi6j98130dc6hrna63aaj6fq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.nickc.taskmanager",
+            "certificate_hash": "be722241350ec35537f6794c31112b9aa9a45e86"
+          }
+        },
+        {
           "client_id": "103281681634-gl7js3bg0q6fga3v0i6dk24ibb5ggoic.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
