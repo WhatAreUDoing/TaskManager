@@ -6,8 +6,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 public class homeActivity extends AppCompatActivity implements View.OnClickListener {
 
+    private FirebaseAuth mAuth;
     private Button signin;
     private Button create;
 
@@ -15,12 +19,23 @@ public class homeActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        mAuth = FirebaseAuth.getInstance();
+
+        updateUI(mAuth.getCurrentUser());
 
         signin = findViewById(R.id.signInHomeButton);
         create = findViewById(R.id.createHomeButton);
 
         signin.setOnClickListener(this);
         create.setOnClickListener(this);
+    }
+
+    private void updateUI(FirebaseUser currentUser) {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            Intent i = new Intent(this, TaskActivity.class);
+            startActivity(i);
+        }
     }
 
     @Override

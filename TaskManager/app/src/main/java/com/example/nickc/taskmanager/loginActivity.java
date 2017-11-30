@@ -39,8 +39,10 @@ public class loginActivity extends AppCompatActivity implements View.OnClickList
         email = findViewById(R.id.emailText);
         password = findViewById(R.id.passwordText);
 
-        userMail = (String) email.getText().toString();
-        userPassword = (String) password.getText().toString();
+        userMail = email.getText().toString();
+        userPassword = password.getText().toString();
+
+        signin.setOnClickListener(this);
     }
 
     @Override
@@ -61,6 +63,8 @@ public class loginActivity extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void onClick(View v) {
+        userMail = email.getText().toString();
+        userPassword = password.getText().toString();
                 mAuth.signInWithEmailAndPassword(userMail, userPassword)
                         .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                             @Override
@@ -71,6 +75,8 @@ public class loginActivity extends AppCompatActivity implements View.OnClickList
                                     updateUI(user);
                                 } else {
                                     // If sign in fails, display a message to the user.
+                                    Toast toast = Toast.makeText(getApplicationContext(), "Fout bij inloggen, probeer opnieuw", Toast.LENGTH_LONG);
+                                    toast.show();
                                     updateUI(null);
                                 }
                             }
