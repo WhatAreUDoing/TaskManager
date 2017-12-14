@@ -7,21 +7,12 @@
     tools:context="com.example.nickc.taskmanager.TaskActivity">
 
 
-    <Button
-        android:id="@+id/signOutButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="@string/signout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginEnd="8dp" />
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <ListView
+            android:id="@+id/TodoListview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:layout_editor_absoluteX="8dp"
